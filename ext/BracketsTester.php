@@ -46,7 +46,7 @@ namespace ext;
             $this->bracketsMatches = $this->parseExpression($arithmeticExpressions);
 
             if (empty($this->bracketsMatches))
-                throw new Exception('Entered string doesn\'t contain any brackets');
+                throw new \Exception('Entered string doesn\'t contain any brackets');
         }
 
         /**

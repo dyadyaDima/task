@@ -5,7 +5,15 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['expression'])) //with empty() we can check both rules: isset() && empty()
     {
         $expression = $_POST['expression'];
-        $object = new \ext\BracketsTester($_POST['expression']);
+
+        try
+        {
+            $object = new \ext\BracketsTester($_POST['expression']);
+        } catch (\Exception $e) {
+            echo "<strong>Exception:</strong> " , $e->getMessage();
+            die();
+        }
+
 
         if ($object->runTest())
         {
